@@ -46,10 +46,10 @@ st.markdown(f"**Antal dage denne booking**  {days.days}")
 if year == '2024':
 
     if bruger == "finn":
-      #url = (r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg?e=Jle4TQ&nav=MTVfe0VFMzMxMjM2LUNFNzMtNDRDQS1COTY5LTRFQzFGMzg4N0E0N30")
-      #df =pd.read_excel('url','book_simp')
+      url = ("https://docs.google.com/spreadsheets/d/1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj/edit?usp=drive_link&ouid=113417285199087461988&rtpof=true&sd=true")
+      df =pd.read_excel('url','book_simp')
       #df = pd.read_excel(r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg.book_simp")
-      df = pd.read_excel('2024 Booking 1_0.xlsx','book_simp')
+      #df = pd.read_excel('2024 Booking 1_0.xlsx','book_simp')
       #(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx", 'book_simp')
       #df = pd.read_excel(https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg?e=Jle4TQ&nav=MTVfe0VFMzMxMjM2LUNFNzMtNDRDQS1COTY5LTRFQzFGMzg4N0E0N30
     if bruger == "naja":
@@ -318,13 +318,16 @@ nationalitet = st.text_input("Nationalitet - DK S N NL etc")
 st.subheader("USB database skal være indsat for at bruge known guest checkbox  ")
 known_guest = st.checkbox("check for known person")
 if known_guest:
-
-    df = pd.read_excel("D:\Hammerdata\Database hammerknuden.xlsx", sheet_name="Dtb", dtype={"telefon": str})
+    url = "https://docs.google.com/spreadsheets/d/1-9Ks0RY1bMlEM0QuYGVv5_VXztI97Yu6/edit?usp=drive_link&ouid=113417285199087461988&rtpof=true&sd=true"
+    df = pd.read_excel("url", "Dtb")
+    #df = pd.read_excel("D:\Hammerdata\Database hammerknuden.xlsx", sheet_name="Dtb", dtype={"telefon": str})
     search_value = telefon
     pd.set_option("display.max_columns", None)
     rows1 = df[df['telefon'] == search_value]
 
-    df = pd.read_excel("D:\Hammerdata\Database hammerknuden.xlsx", sheet_name="Dtb", dtype={"email": str})
+    url = "https://docs.google.com/spreadsheets/d/1-9Ks0RY1bMlEM0QuYGVv5_VXztI97Yu6/edit?usp=drive_link&ouid=113417285199087461988&rtpof=true&sd=true"
+    df = pd.read_excel('url', 'Dtb')  
+  #df = pd.read_excel("D:\Hammerdata\Database hammerknuden.xlsx", sheet_name="Dtb", dtype={"email": str})
     search_value = email_address
     pd.set_option("display.max_columns", None)
     rows2 = df[df['Email'] == search_value]
