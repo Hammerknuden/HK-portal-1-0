@@ -46,7 +46,7 @@ st.markdown(f"**Antal dage denne booking**  {days.days}")
 if year == '2024':
 
     if bruger == "finn":
-      df = pd.read_excel("2024 BOOKING 1_0.xlsx")
+      df = pd.read_excel('2024 BOOKING 1_0.xlsx', sheet_name='book_simp')
       #url = ('https://drive.google.com/uc?id=1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj')
       #df =pd.read_excel(url, sheet_name='book_simp')
       #df = pd.read_excel(r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg.book_simp")
