@@ -27,7 +27,7 @@ st.image("logo2.jpg")
 st.subheader("Reservations formular  ")
 
 year = st.selectbox("booking år", options=["2024", "2025", "2026"])
-bruger = st.selectbox("bruger computer ", options=["finn"])
+bruger = st.selectbox("bruger computer ", options=["finn", "naja"])
 
 now = st.date_input("booking dato")
 
@@ -46,13 +46,12 @@ st.markdown(f"**Antal dage denne booking**  {days.days}")
 if year == '2024':
 
     if bruger == "finn":
-      df = pd.read_excel('2024 BOOKING 1_0.xlsx', sheet_name='book_simp')
-      #url = ('https://drive.google.com/uc?id=1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj')
-      #df =pd.read_excel(url, sheet_name='book_simp')
-      #df = pd.read_excel(r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg.book_simp")
-      #df = pd.read_excel('2024 Booking 1_0.xlsx','book_simp')
-      #(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx", 'book_simp')
-      #df = pd.read_excel(https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg?e=Jle4TQ&nav=MTVfe0VFMzMxMjM2LUNFNzMtNDRDQS1COTY5LTRFQzFGMzg4N0E0N30
+        #url = ('https://drive.google.com/uc?id=1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj')
+        #df = pd.read_excel('2024 BBOOKING 1_0.XLSX', sheet_name='book_simp')
+        #df = pd.read_excel(r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg.book_simp")
+        df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
+        #(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx", 'book_simp')
+        #df = pd.read_excel(https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg?e=Jle4TQ&nav=MTVfe0VFMzMxMjM2LUNFNzMtNDRDQS1COTY5LTRFQzFGMzg4N0E0N30
     if bruger == "naja":
         df = pd.read_excel(r"C:Users\naja\Onedrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx",
                            'book_simp')
@@ -98,11 +97,13 @@ if year == '2024':
 if year == '2025':
 
     if bruger == "naja":
-        df = pd.read_excel(r"C:\Users\naja\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2025_BOOKING_ 2_0.xlsx",
-                            sheet_name='book_simp')
+        df = pd.read_excel('2025 BOOKING C.xlsx',  'book_simp')
+        #df = pd.read_excel(r"C:\Users\naja\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2025_BOOKING_ 2_0.xlsx",
+        #                    sheet_name='book_simp')
     if bruger == "finn":
-        df = pd.read_excel(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2025_BOOKING_ 2_0.xlsx",
-                            sheet_name='book_simp')
+        df = pd.read_excel('2025 BOOKING C.xlsx', 'book_simp')
+        #df = pd.read_excel(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2025_BOOKING_ 2_0.xlsx",
+        #                    sheet_name='book_simp')
 
     else:
         streamlit.markdown("Fil fejl")
@@ -316,11 +317,11 @@ nationalitet = st.text_input("Nationalitet - DK S N NL etc")
 #"D:\Hammerdata\Database hammerknuden.xlsx"
 #"Database hammerknuden.xlsx
 
-st.subheader("USB database skal være indsat for at bruge known guest checkbox  ")
+st.subheader(" database skal være opdateret for at bruge known guest checkbox  ")
 known_guest = st.checkbox("check for known person")
 if known_guest:
-    url = "https://docs.google.com/spreadsheets/d/1-9Ks0RY1bMlEM0QuYGVv5_VXztI97Yu6/edit?usp=drive_link&ouid=113417285199087461988&rtpof=true&sd=true"
-    df = pd.read_excel("url", "Dtb")
+    #url = "https://docs.google.com/spreadsheets/d/1-9Ks0RY1bMlEM0QuYGVv5_VXztI97Yu6/edit?usp=drive_link&ouid=113417285199087461988&rtpof=true&sd=true"
+    df = pd.read_excel('Databasen.xlsx', "Dtb")
     #df = pd.read_excel("D:\Hammerdata\Database hammerknuden.xlsx", sheet_name="Dtb", dtype={"telefon": str})
     search_value = telefon
     pd.set_option("display.max_columns", None)
@@ -352,14 +353,16 @@ if send_data and year == '2024':
                           {single_room}, {breakfast}, {pristotal}, {known})
         add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
                  rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2024 output.xlsx")
+                 excel_path=('2024 output C.xlsx')
+                 #excel_path=r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2024 output.xlsx")
     if bruger == "naja":
         some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
                           {web},{seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
                           {single_room}, {breakfast}, {pristotal}, {known})
         add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
                  rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2024 output.xlsx")
+                 excel_path=('2024 output C.xlsx', 'book')
+                 #excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2024 output.xlsx")
 
     st.markdown("2024 data sendt til excel")
 
@@ -370,14 +373,16 @@ if send_data and year == '2025':
                           {single_room}, {breakfast}, {pristotal}, {known})
         add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
                  rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
+                 excel_path=('2025 output C.xlsx', 'book')
+                 #excel_path=r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
     if bruger == "naja":
         some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
                           {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
                           {single_room}, {breakfast}, {pristotal}, {known})
         add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
                  rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
+                 excel_path=('2025 output C.xlsx','book')
+                 #excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
 
     st.markdown("2025 data sendt til excel")
 
