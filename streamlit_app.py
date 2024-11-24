@@ -12,12 +12,6 @@ from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import base64
 
-
-#df = pd.DataFrame({'Farve': ['R', 'B', 'G', 'F']})
-# for at starte:
-# tryk ctrl+shift+A for at få action menuen, vælg "terminal"
-# skriv `streamlit run streamlit_app.py`
-
 st.subheader("Velkommen til")
 
 st.title("**HAMMERKNUDEN SOMMERPENSION - BOOKING PORTAL**")
@@ -27,8 +21,7 @@ st.image("logo2.jpg")
 st.subheader("Reservations formular  ")
 
 year = st.selectbox("booking år", options=["2024", "2025", "2026"])
-bruger = st.selectbox("bruger computer ", options=["finn", "naja"])
-
+#bruger = st.selectbox("bruger computer ", options=["finn"])
 now = st.date_input("booking dato")
 
 booking_number = st.text_input("booking nummer ")
@@ -45,68 +38,69 @@ st.markdown(f"**Antal dage denne booking**  {days.days}")
 
 if year == '2024':
 
-    if bruger == "finn":
+    #if bruger == "finn":
         #url = ('https://drive.google.com/uc?id=1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj')
         #df = pd.read_excel('2024 BBOOKING 1_0.XLSX', sheet_name='book_simp')
         #df = pd.read_excel(r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg.book_simp")
-        df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
+    df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
         #(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx", 'book_simp')
         #df = pd.read_excel(https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg?e=Jle4TQ&nav=MTVfe0VFMzMxMjM2LUNFNzMtNDRDQS1COTY5LTRFQzFGMzg4N0E0N30
-    if bruger == "naja":
-        df = pd.read_excel(r"C:Users\naja\Onedrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx",
-                           'book_simp')
-    else:
-        st.markdown("fil fejl ")
+    #if bruger == "naja":
+        #df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
+        #df = pd.read_excel(r"C:Users\naja\Onedrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx",
+                   #        'book_simp')
+    #else:
+        #st.markdown("fil fejl ")
 
-    new_data = df[(df['dato'].dt.date >= checkin_date) & (df['dato'].dt.date < checkout_date)]
-    unique_values = new_data["1-I"].unique()
-    counts_1 = new_data["1-I"].value_counts()
-    counts_2 = new_data["2-I"].value_counts()
-    counts_3 = new_data["3-I"].value_counts()
-    counts_4 = new_data["4-I"].value_counts()
-    counts_5 = new_data["5-I"].value_counts()
-    vær_1 = (counts_1['F'])
-    vær_2 = (counts_2['F'])
-    vær_3 = (counts_3['F'])
-    vær_4 = (counts_4['F'])
-    vær_5 = (counts_5['F'])
-    if vær_1 == days.days:
-        ledige_rum_1 = 1
-    else:
-        ledige_rum_1 = 0
-    if vær_2 == days.days:
-        ledige_rum_2 = 1
-    else:
-        ledige_rum_2 = 0
-    if vær_3 == days.days:
-        ledige_rum_3 = 1
-    else:
-        ledige_rum_3 = 0
-    if vær_4 == days.days:
-        ledige_rum_4 = 1
-    else:
-        ledige_rum_4 = 0
-    if vær_5 == days.days:
-        ledige_rum_5 = 1
-    else:
-        ledige_rum_5 = 0
-    ledige_rum = ledige_rum_1 + ledige_rum_2 + ledige_rum_3 + ledige_rum_4 + ledige_rum_5
-    print(unique_value)
-    st.markdown(f"**Antal ledige rum**  {ledige_rum}")
+new_data = df[(df['dato'].dt.date >= checkin_date) & (df['dato'].dt.date < checkout_date)]
+unique_values = new_data["1-I"].unique()
+counts_1 = new_data["1-I"].value_counts()
+counts_2 = new_data["2-I"].value_counts()
+counts_3 = new_data["3-I"].value_counts()
+counts_4 = new_data["4-I"].value_counts()
+counts_5 = new_data["5-I"].value_counts()
+vær_1 = (counts_1['F'])
+vær_2 = (counts_2['F'])
+vær_3 = (counts_3['F'])
+vær_4 = (counts_4['F'])
+vær_5 = (counts_5['F'])
+if vær_1 == days.days:
+    ledige_rum_1 = 1
+else:
+    ledige_rum_1 = 0
+if vær_2 == days.days:
+    ledige_rum_2 = 1
+else:
+    ledige_rum_2 = 0
+if vær_3 == days.days:
+    ledige_rum_3 = 1
+else:
+    ledige_rum_3 = 0
+if vær_4 == days.days:
+    ledige_rum_4 = 1
+else:
+    ledige_rum_4 = 0
+if vær_5 == days.days:
+    ledige_rum_5 = 1
+else:
+    ledige_rum_5 = 0
+ledige_rum = ledige_rum_1 + ledige_rum_2 + ledige_rum_3 + ledige_rum_4 + ledige_rum_5
+print(unique_value)
+st.markdown(f"**Antal ledige rum**  {ledige_rum}")
 
 if year == '2025':
 
-    if bruger == "naja":
-        df = pd.read_excel('2025 BOOKING C.xlsx',  'book_simp')
+    #if bruger == "naja":
+    df = pd.read_excel('2025 BOOKING C.xlsx',  'book_simp')
         #df = pd.read_excel(r"C:\Users\naja\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2025_BOOKING_ 2_0.xlsx",
         #                    sheet_name='book_simp')
-    if bruger == "finn":
-        df = pd.read_excel('2025 BOOKING C.xlsx', 'book_simp')
+    #if bruger == "finn":
+    #    df = pd.read_excel('2025 BOOKING C.xlsx', 'book_simp')
         #df = pd.read_excel(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2025_BOOKING_ 2_0.xlsx",
         #                    sheet_name='book_simp')
 
-    else:
-        streamlit.markdown("Fil fejl")
+else:
+    streamlit.markdown("Fil fejl")
 
     new_data = df[(df['dato'].dt.date >= checkin_date) & (df['dato'].dt.date < checkout_date)]
     unique_values = new_data["1-I"].unique()
@@ -347,44 +341,45 @@ spouse = st.text_input("info for kendt person til Dtb  ")
 
 send_data = st.button("data to excel")
 if send_data and year == '2024':
-    if bruger == "finn":
-        some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
-                          {web},{seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
-                          {single_room}, {breakfast}, {pristotal}, {known})
-        add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
-                 rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=('2024 output C.xlsx')
+    #if bruger == "finn":
+    some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
+                      {web},{seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
+                      {single_room}, {breakfast}, {pristotal}, {known})
+    add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
+             rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
+             excel_path=('2024 output C.xlsx', 'book'),
                  #excel_path=r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2024 output.xlsx")
-    if bruger == "naja":
-        some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
-                          {web},{seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
-                          {single_room}, {breakfast}, {pristotal}, {known})
-        add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
-                 rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=('2024 output C.xlsx', 'book')
+    #if bruger == "naja":
+    #    some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
+    #                      {web},{seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
+    #                      {single_room}, {breakfast}, {pristotal}, {known})
+    #    add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
+    #             rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
+    #             excel_path=('2024 output C.xlsx', 'book')
                  #excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2024 output.xlsx")
 
     st.markdown("2024 data sendt til excel")
 
 if send_data and year == '2025':
-    if bruger == "finn":
-        some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
-                          {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
-                          {single_room}, {breakfast}, {pristotal}, {known})
-        add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
-                 rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=('2025 output C.xlsx', 'book')
+    #if bruger == "finn":
+    some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
+                      {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
+                      {single_room}, {breakfast}, {pristotal}, {known})
+    add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
+             rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
+             excel_path=('2025 output C.xlsx', 'book')
                  #excel_path=r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
-    if bruger == "naja":
-        some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
-                          {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
-                          {single_room}, {breakfast}, {pristotal}, {known})
-        add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
-                 rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
-                 excel_path=('2025 output C.xlsx','book')
-                 #excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
-
+    #if bruger == "naja":
+    #    some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
+    #                      {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
+    #                      {single_room}, {breakfast}, {pristotal}, {known})
+    #    add_data(some_book_data, year, booking_number, name, checkin_date, checkout_date, now, nationalitet, web, seng,
+    #             rabat, num_rooms, num_guests, email_address, telefon, spouse, single_room, breakfast, pristotal, known,
+    #             excel_path=('2025 output C.xlsx','book')
+    #             #excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2025 output.xlsx")
     st.markdown("2025 data sendt til excel")
+else:
+    st.markdown("data not sendt")
 
 if send_data and year == '2026': # husk at indsætte bruger naja / finn
     if bruger == "finn":
