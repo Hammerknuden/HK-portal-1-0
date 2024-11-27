@@ -42,10 +42,12 @@ if year == '2024':
         #url = ('https://drive.google.com/uc?id=1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj')
         #df = pd.read_excel('2024 BBOOKING 1_0.XLSX', sheet_name='book_simp')
         #df = pd.read_excel(r"https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg.book_simp")
-    df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
+        #df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
         #(r"C:\Users\finnj\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx", 'book_simp')
         #df = pd.read_excel(https://1drv.ms/x/s!AkHtB4-z9Oc7gbVTAYTv_TQ3m5nMhg?e=Jle4TQ&nav=MTVfe0VFMzMxMjM2LUNFNzMtNDRDQS1COTY5LTRFQzFGMzg4N0E0N30
-    #if bruger == "naja":
+  URL = https://docs.google.com/spreadsheets/d/1-9mALBucV-67ytDpfsWD9vUwXA_-tHOj/edit?usp=sharing&ouid=113417285199087461988&rtpof=true&sd=true
+  df = pd.read_excel('url', sheet_name'book_simp')
+  #if bruger == "naja":
         #df = pd.read_excel('2024 Booking C.xlsx', 'book_simp')
         #df = pd.read_excel(r"C:Users\naja\Onedrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\2024 BOOKING 1_0.xlsx",
                    #        'book_simp')
