@@ -363,6 +363,7 @@ if send_data and year == '2024':
     st.markdown("2024 data sendt til excel")
 
 if send_data and year == '2025':
+  
     #if bruger == "finn":
     some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
                       {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
