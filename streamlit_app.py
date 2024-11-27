@@ -362,7 +362,7 @@ if send_data and year == '2024':
 
     st.markdown("2024 data sendt til excel")
 
-if send_data and year == '2025':
+elif send_data and year == '2025':
   
     #if bruger == "finn":
     some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
@@ -384,7 +384,7 @@ if send_data and year == '2025':
 else:
     st.markdown("data not sendt")
 
-if send_data and year == '2026': # husk at indsætte bruger naja / finn
+elif send_data and year == '2026': # husk at indsætte bruger naja / finn
     if bruger == "finn":
         some_book_data = ({year}, {booking_number}, {name}, {checkin_date}, {checkout_date}, {now}, {nationalitet},
                           {web}, {seng}, {rabat}, {num_rooms}, {num_guests}, {email_address}, {telefon}, {spouse},
@@ -401,6 +401,9 @@ if send_data and year == '2026': # husk at indsætte bruger naja / finn
                  excel_path=r"C:\Users\bonne\OneDrive\DELE MAPPE NAJA\HAMMERKNUDEN\BOOKING\filer\2026 output.xlsx")
 
     st.markdown("2026 data sendt til excel")
+else:
+  st.markdown("fault")
+  
 
 text_ank = st.checkbox("tekst vedr. ankomsttid  ")
 if Sprog == 'DK':
